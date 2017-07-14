@@ -63,6 +63,7 @@ class PostController extends Controller
 
 	public function delete(Post $post)
 	{
+		$this->authorize('delete', $post);
 		$post->delete();
 		return redirect('/posts');
 	}
