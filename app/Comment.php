@@ -10,4 +10,9 @@ class Comment extends Model
     {
     	return $this->belongsTo('App\Post')->orderBy('created_at', 'desc');
     }
+
+    public function user()
+    {
+    	return $this->belongsTo('App\User');
+    }
 }

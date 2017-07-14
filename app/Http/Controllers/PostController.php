@@ -16,6 +16,7 @@ class PostController extends Controller
 
 	public function show(Post $post)
 	{
+		$post->load('comments');
 		return view('post/show', compact('post'));
 	}
 
@@ -27,8 +28,8 @@ class PostController extends Controller
 	public function store()
 	{
 		$this->validate(request(), [
-			'title' => 'required | string | max:100 | min:5',
-			'content' => 'required | string | min:10'
+			'title' => 'required|string|max:100|min:5',
+			'content' => 'required|string|min:10'
 		]);
 		
 		$user_id = \Auth::id();
