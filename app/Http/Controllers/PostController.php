@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Comment;
 
 class PostController extends Controller
 {
@@ -74,6 +75,18 @@ class PostController extends Controller
 		return asset('storage/'.$path);
 	}
 
-	
+	public function comment(Post $post)
+	{
+		$this->validate(Request(), [
+			'content' => 'required|min:3'
+		]);
+
+		$comment = new Comment();
+		$comment->user_id = \Auth::id();
+		$comment->content = request('content');
+		$post->comments()->save($comment);
+
+		return back();
+	}
     
 }

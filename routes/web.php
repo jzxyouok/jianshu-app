@@ -47,3 +47,5 @@ Route::put('/posts/{post}', '\App\Http\Controllers\PostController@update');
 Route::get('/posts/{post}/delete', '\App\Http\Controllers\PostController@delete');
 
 Route::post('/posts/image/upload', '\App\Http\Controllers\PostController@imageUpload');
+
+Route::post('posts/{post}/comment', '\App\Http\Controllers\PostController@comment');
