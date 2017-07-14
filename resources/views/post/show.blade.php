@@ -16,14 +16,12 @@
 <div class="panel panel-default">
 	<div class="panel-heading">评论</div>
 	<ul class="list-group">
+		@foreach($post->comments as $comment)
 		<li class="list-group-item">
-			<h5>time</h5>
-			<div>this is first comment</div>
+			<h5>{{ $comment->created_at }} by {{ $comment->user->name }}</h5>
+			<div>{{ $comment->content }}</div>
 		</li>
-		<li class="list-group-item">
-			<h5>time</h5>
-			<div>this is second comment</div>
-		</li>
+		@endforeach
 	</ul>
 </div>
 
