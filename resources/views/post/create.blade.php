@@ -12,6 +12,7 @@
 			<label>content</label>
 			<textarea id="content" name="content" class="form-control" placeholder="content"></textarea>
 		</div>
+		@include('layout.error')
 		<button type="submit" class="btn btn-default">submit</button>
 	</form>
 </div>
