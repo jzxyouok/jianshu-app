@@ -49,3 +49,7 @@ Route::get('/posts/{post}/delete', '\App\Http\Controllers\PostController@delete'
 Route::post('/posts/image/upload', '\App\Http\Controllers\PostController@imageUpload');
 
 Route::post('posts/{post}/comment', '\App\Http\Controllers\PostController@comment');
+
+//文章点赞模块
+Route::get('posts/{post}/zan', '\App\Http\Controllers\PostController@zan');
+Route::get('posts/{post}/unzan', '\App\Http\Controllers\PostController@unzan');

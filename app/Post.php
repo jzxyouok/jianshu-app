@@ -20,4 +20,14 @@ class Post extends Model
     {
     	return $this->hasMany('App\Comment')->orderBy('created_at', 'desc');
     }
+
+    public function zan($user_id)
+    {
+        return $this->hasOne('App\Zan')->where('user_id', $user_id);
+    }
+
+    public function zans()
+    {
+        return $this->hasMany('App\Zan');
+    }
 }

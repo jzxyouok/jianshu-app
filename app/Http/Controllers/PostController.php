@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
+use App\Zan;
 
 class PostController extends Controller
 {
 	public function index()
 	{
-		$posts = Post::orderBy('created_at', 'desc')->withCount('comments')->paginate(6);
+		$posts = Post::orderBy('created_at', 'desc')->withCount(['comments', 'zans'])->paginate(6);
 		return view('post/index', compact('posts'));
 	}
 
@@ -87,6 +88,23 @@ class PostController extends Controller
 		$comment->content = request('content');
 		$post->comments()->save($comment);
 
+		return back();
+	}
+
+	public function zan(Post $post)
+	{
+		$param = [
+			'user_id' => \Auth::id(),
+			'post_id' => $post->id
+		];
+
+		Zan::firstOrCreate($param);
+		return back();
+	}
+
+	public function unzan(Post $post)
+	{
+		$post->zan(\Auth::id())->delete();
 		return back();
 	}
     
