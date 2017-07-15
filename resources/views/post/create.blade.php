@@ -10,7 +10,7 @@
 		</div>
 		<div class="form-group">
 			<label>content</label>
-			<textarea id="content" name="content" class="form-control" placeholder="content"></textarea>
+			<textarea id="content" name="content" class="form-control" placeholder="content" rows="20"></textarea>
 		</div>
 		@include('layout.error')
 		<button type="submit" class="btn btn-default">submit</button>
