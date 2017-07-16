@@ -23,7 +23,7 @@
 					<div>
 						<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
 						&nbsp;&nbsp;--
-						<a href="/user/{{$post->user->id}}">{{ $post->user->name }}</a>{{ $post->created_at->diffForHumans() }}
+						<a href="/user/{{$post->user->id}}">{{ $post->user->name }}</a>&nbsp;&nbsp;&nbsp;{{ $post->created_at->diffForHumans() }}
 					</div>
 					<p class="content">{!! str_limit($post->content, 100, '...') !!}</p>
 				</div>
